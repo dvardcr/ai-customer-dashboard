@@ -1,5 +1,11 @@
 <h1>AI Customer Success Dashboard</h1>
 
+<p>
+  <img src="https://img.shields.io/badge/status-live-success" alt="Live Demo"/>
+  <img src="https://img.shields.io/badge/AI-Claude%20Sonnet%204.6-blue" alt="AI Model"/>
+  <img src="https://img.shields.io/badge/database-Supabase-orange" alt="Database"/>
+</p>
+
 <blockquote>
   <p>Real-time customer health monitoring powered by Claude AI | <a href="#">Live Demo (coming soon)</a></p>
 </blockquote>
@@ -69,8 +75,14 @@
 
 <table>
   <tr>
-    <td><strong>Dashboard View</strong><br/>(Screenshot coming soon)</td>
-    <td><strong>AI Analysis Panel</strong><br/>(Screenshot coming soon)</td>
+    <td>
+      <strong>Full Dashboard View</strong><br/>
+      <img src="/images/dashboard-full.png" alt="Customer Success Dashboard" width="500"/>
+    </p>
+    <td>
+      <strong>AI Churn Analysis Panel</strong><br/>
+      <img src="/images/ai-analysis-detail.png" alt="AI risk score with action items" width="500"/>
+    </p>
   </tr>
 </table>
 
