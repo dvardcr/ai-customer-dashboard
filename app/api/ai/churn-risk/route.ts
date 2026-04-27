@@ -1,14 +1,21 @@
 import { Anthropic } from '@anthropic-ai/sdk';
 import { NextResponse } from 'next/server';
+import { traceable } from 'langsmith/traceable';
+import { Client } from 'langsmith';
 
 const anthropic = new Anthropic({
     apiKey: process.env.ANTHROPIC_API_KEY,
     });
 
-    export async function POST(request: Request) {
-    try {
-        const { customer } = await request.json();
+    // Initialize LangSmith client
+    const langsmithClient = new Client({
+    apiKey: process.env.LANGSMITH_API_KEY,
+    apiUrl: 'https://api.smith.langchain.com',
+    });
 
+    // Wrap the AI analysis function with tracing
+    const analyzeCustomerWithTrace = traceable(
+    async (customer: any) => {
         const prompt = `You are a Customer Success AI assistant. Analyze this customer and return ONLY valid JSON (no other text, no markdown, just the JSON object):
 
     Customer:
@@ -27,7 +34,7 @@ const anthropic = new Anthropic({
     Base risk on: Low total spent, old last_active date, high support tickets = higher risk.`;
 
         const response = await anthropic.messages.create({
-        model: 'claude-sonnet-4-6',  // ✅ The working model from curl test
+        model: 'claude-sonnet-4-6',
         max_tokens: 500,
         temperature: 0.3,
         messages: [{ role: 'user', content: prompt }],
@@ -40,8 +47,6 @@ const anthropic = new Anthropic({
         }
         
         let text = contentBlock.text;
-        
-        // Clean up common issues
         text = text.trim();
         
         // Remove markdown code blocks if present
@@ -54,23 +59,36 @@ const anthropic = new Anthropic({
         const jsonMatch = text.match(/\{[\s\S]*\}/);
         
         if (!jsonMatch) {
-        console.error('No JSON found in:', text);
         throw new Error('No JSON found in Claude response');
         }
         
         const analysis = JSON.parse(jsonMatch[0]);
         
-        // Validate the response has required fields
-        if (!analysis.risk_score || !analysis.reason || !analysis.action_items) {
-        throw new Error('Missing required fields in Claude response');
-        }
+        return {
+        analysis,
+        rawResponse: text,
+        usage: response.usage,
+        };
+    },
+    {
+        name: 'churn_risk_analysis',
+        run_type: 'llm',
+        project_name: process.env.LANGSMITH_PROJECT || 'customer-dashboard',
+    }
+    );
+
+    export async function POST(request: Request) {
+    try {
+        const { customer } = await request.json();
         
-        return NextResponse.json(analysis);
+        // This call is automatically traced to LangSmith
+        const result = await analyzeCustomerWithTrace(customer);
+        
+        return NextResponse.json(result.analysis);
         
     } catch (error: any) {
         console.error('AI Analysis Error:', error.message);
         
-        // Return a fallback so UI doesn't break
         const fallback = {
         risk_score: 5,
         reason: `Analysis temporarily unavailable: ${error.message.substring(0, 100)}`,
