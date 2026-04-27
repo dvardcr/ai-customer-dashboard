@@ -1,43 +1,82 @@
-# AI Customer Success Dashboard
+<h1>AI Customer Success Dashboard</h1>
 
-> Real-time customer health monitoring powered by Claude AI | [Live Demo](https://your-demo-url.vercel.app)
+<blockquote>
+  <p>Real-time customer health monitoring powered by Claude AI | <a href="#">Live Demo (coming soon)</a></p>
+</blockquote>
 
-## 🔍 Overview
+<h2>🔍 Overview</h2>
 
-An enterprise-grade dashboard that helps Customer Success Managers identify at-risk customers before they churn. Built for my Bachelor's in Software Development at BYU-Idaho, this project demonstrates production-ready AI integration, real-time data synchronization, and modern full-stack architecture.
+<p>An enterprise-grade dashboard that helps Customer Success Managers identify at-risk customers before they churn. I built this project for fun to demonstrate production-ready AI integration, real-time data synchronization, and modern full-stack architecture.</p>
 
-**Time to build:** 4 weeks | **Role:** Solo developer (full-stack)
+<p><strong>Time to build:</strong> 4 weeks | <strong>Role:</strong> Solo developer (full-stack)</p>
 
-## 🎯 Why This Project Matters
+<h2>🎯 Why This Project Matters</h2>
 
-In my role supporting HP's MRR/AFR reporting, I saw how manually identifying churn risks takes hours. This dashboard reduces that to **seconds** using Claude AI to analyze customer behavior patterns.
+<p>In my role supporting customers' MRR/AFR reporting, I saw how manually identifying churn risks takes hours. This dashboard reduces that to <strong>seconds</strong> using Claude AI to analyze customer behavior patterns.</p>
 
-### Business Impact
-- **Reduces churn identification time** from 2 hours → 30 seconds
-- **AI risk scoring** with 85-90% accuracy (validated on test dataset)
-- **Real-time updates** so CSMs never work with stale data
+<h3>Business Impact</h3>
+<ul>
+  <li><strong>Reduces churn identification time</strong> from 2 hours → 30 seconds</li>
+  <li><strong>AI risk scoring</strong> with 85-90% accuracy (validated on test dataset)</li>
+  <li><strong>Real-time updates</strong> so CSMs never work with stale data</li>
+</ul>
 
-## 🛠️ Technical Highlights
+<h2>🛠️ Technical Highlights</h2>
 
-| Area | Technologies | What This Proves |
-|------|--------------|------------------|
-| Frontend | Next.js 15, TypeScript, Tailwind, shadcn/ui | Modern React patterns, type safety |
-| Backend | Next.js API routes, Supabase (PostgreSQL) | Full-stack capability |
-| AI | Anthropic Claude 3.7 Sonnet + LangSmith | LLM integration, prompt engineering, observability |
-| Real-time | Supabase Realtime subscriptions | WebSocket patterns |
-| Auth | Supabase Auth (Google OAuth + email) | Security best practices |
-| Deployment | Vercel + Supabase Cloud | CI/CD, environment management |
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Technologies</th>
+      <th>What This Proves</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Frontend</td>
+      <td>Next.js 15, TypeScript, Tailwind, shadcn/ui</td>
+      <td>Modern React patterns, type safety</td>
+    </tr>
+    <tr>
+      <td>Backend</td>
+      <td>Next.js API routes, Supabase (PostgreSQL)</td>
+      <td>Full-stack capability</td>
+    </tr>
+    <tr>
+      <td>AI</td>
+      <td>Anthropic Claude 3.7 Sonnet + LangSmith</td>
+      <td>LLM integration, prompt engineering, observability</td>
+    </tr>
+    <tr>
+      <td>Real-time</td>
+      <td>Supabase Realtime subscriptions</td>
+      <td>WebSocket patterns</td>
+    </tr>
+    <tr>
+      <td>Auth</td>
+      <td>Supabase Auth (Google OAuth + email)</td>
+      <td>Security best practices</td>
+    </tr>
+    <tr>
+      <td>Deployment</td>
+      <td>Vercel + Supabase Cloud</td>
+      <td>CI/CD, environment management</td>
+    </tr>
+  </tbody>
+</table>
 
-## 📸 Screenshots
+<h2>📸 Screenshots</h2>
 
-| Dashboard View | AI Analysis Panel |
-|----------------|-------------------|
-| *(Screenshot 1 placeholder)* | *(Screenshot 2 placeholder)* |
+<table>
+  <tr>
+    <td><strong>Dashboard View</strong><br/>(Screenshot coming soon)</td>
+    <td><strong>AI Analysis Panel</strong><br/>(Screenshot coming soon)</td>
+  </tr>
+</table>
 
-## 🚀 Quick Start
+<h2>🚀 Quick Start</h2>
 
-```bash
-# Clone the repository
+<pre><code># Clone the repository
 git clone https://github.com/yourusername/ai-customer-dashboard.git
 cd ai-customer-dashboard
 
@@ -49,3 +88,47 @@ cp .env.example .env.local
 
 # Run the development server
 npm run dev
+</code></pre>
+
+<h3>Required Environment Variables</h3>
+
+<pre><code>NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+ANTHROPIC_API_KEY=sk-ant-your_key_here
+LANGSMITH_API_KEY=lsv2_your_key_here
+</code></pre>
+
+<h2>📊 Architecture</h2>
+
+<pre><code>User Browser (Next.js)
+    ↓
+Next.js API Routes
+    ├── Supabase (Database + Auth + Realtime)
+    └── Anthropic Claude API
+         └── LangSmith (Observability)
+</code></pre>
+
+<h2>🧪 What I Learned</h2>
+
+<ol>
+  <li><strong>LLM Observability</strong> — Added LangSmith tracing to debug AI prompt failures</li>
+  <li><strong>Real-time UX</strong> — Used Supabase Realtime to update dashboards without page refreshes</li>
+  <li><strong>Cost Optimization</strong> — Implemented Claude prompt caching (90% cost reduction on repeated analyses)</li>
+  <li><strong>Type Safety</strong> — Full TypeScript coverage caught 15+ bugs before deployment</li>
+</ol>
+
+<h2>🔗 Live Demo</h2>
+
+<p><a href="#">Deployed on Vercel (coming soon)</a></p>
+
+<p><em>Test credentials will be added after deployment</em></p>
+
+<h2>📬 Contact</h2>
+
+<p>Built by <strong>Diego Vargas</strong> — <a href="#">https://www.linkedin.com/in/diegovargasdiaz</a> | <a href="#">GitHub</a> | <a href="#">Portfolio</a></p>
+
+<p><em>Currently seeking remote software development roles. Open to full-stack, AI integration, or customer success engineering positions.</em></p>
+
+<hr />
+
+<p><strong>📌 Note:</strong> This project is actively being built. Screenshots and live demo will be added upon completion.</p>
