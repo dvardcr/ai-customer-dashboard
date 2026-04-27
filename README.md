@@ -81,7 +81,7 @@
     </p>
     <td>
       <strong>AI Churn Analysis Panel</strong><br/>
-      <img src="[/images/ai-analysis-detail.png](https://github.com/dvardcr/ai-customer-dashboard/blob/main/public/images/ai-analysis-detail.png)" alt="AI risk score with action items" width="500"/>
+      <img src="[/images/ai-analysis-detail.png](https://github.com/dvardcr/ai-customer-dashboard/blob/main/public/images/ai-analysis-detail.png" alt="AI risk score with action items" width="500"/>
     </p>
   </tr>
 </table>
