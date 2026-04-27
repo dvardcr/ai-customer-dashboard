@@ -77,11 +77,11 @@
   <tr>
     <td>
       <strong>Full Dashboard View</strong><br/>
-      <img src="/images/dashboard-full.png" alt="Customer Success Dashboard" width="500"/>
+      <img src="https://github.com/dvardcr/ai-customer-dashboard/blob/main/public/images/dashboard-full.png" alt="Customer Success Dashboard" width="500"/>
     </p>
     <td>
       <strong>AI Churn Analysis Panel</strong><br/>
-      <img src="/images/ai-analysis-detail.png" alt="AI risk score with action items" width="500"/>
+      <img src="https://github.com/dvardcr/ai-customer-dashboard/blob/main/public/images/ai-analysis-detail.png" alt="AI risk score with action items" width="500"/>
     </p>
   </tr>
 </table>
